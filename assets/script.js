@@ -2,15 +2,33 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 var saveBtnEl = document.querySelector('#fa-save');
+var hourContainerEl = document.querySelector('#hour-');
 
 const currentDate = dayjs();
 const formattedDate = currentDate.format('YYYY-MM-DD');
 console.log(formattedDate);
 console.log
 $(function dataSubmit(event) {
+  event.preventDefault();
+var scheduleData = Input.value;
+var scheduleData = localStorage.getItem('schedule');
+// parse the array
+var parsedSchedule = JSON.parse(schedule) || [];
 
+parsedSchedule.push(scheduleData);
 
-    // TODO: Add a listener for click events on the save button. This code should
+// serialize 
+var inputData = JSON.stringify(parsedSchedule);
+
+// store it
+localStorage.setItem('input', inputData);
+
+// if (event.target.matches('.hour-')) {
+//     console.log(event.target.dataset.text);
+     
+
+// console.log($(this).data('scheduleData'));
+// TODO: Add a listener for click events on the save button. This code should
     // use the id in the containing time-block as a key to save the user input in
     // local storage. HINT: What does `this` reference in the click listener
     // function? How can DOM traversal be used to get the "hour-x" id of the
@@ -28,5 +46,6 @@ $(function dataSubmit(event) {
     // attribute of each time-block be used to do this?
     //
     // TODO: Add code to display the current date in the header of the page.
+// }
   });
   
