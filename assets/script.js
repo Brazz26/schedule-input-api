@@ -3,17 +3,19 @@
 // in the html.
 var saveBtnEl = $('#fa-save');
 var textAreaEL = $('#text-area')
-var hourContainerEl = $('#hour-');
 
-const currentDate = dayjs();
-const formattedDate = currentDate.format('YYYY-MM-DD');
-console.log(formattedDate);
-// console.log(dayjs());
+var date = new Date();
+var dd = date.getDate();
+var mm = date.getMonth() + 1;
+var yyyy = date.getFullYear();
+var newDate = mm + '' + dd + '' + yyyy;
+var p = document.getElementById('currentDate');
+p.innerHTML = date;
 
 $(function schedulePlan(event) {
 
   // var scheduleData = Input.value;
-  var schedule = document.getElementsByClassName('textarea').value;
+  var schedule = document.getElementsByClassName('input').value;
   var scheduleData = localStorage.getItem('schedule');
   var parsedSchedule = JSON.parse(schedule) || [];
   var inputData = JSON.stringify(parsedSchedule);
@@ -22,8 +24,8 @@ $(function schedulePlan(event) {
 
   localStorage.setItem('input', inputData);
 
-  if (event.target.matches('.hour-')) {
-    console.log(event.target.dataset.text);
+  if (event.target.matches(schedule)) {
+    console.log('Saved');
 
 
     console.log($(this).data('scheduleData'));
@@ -64,6 +66,6 @@ function timeblock() {
 }
 timeblock()
 $('.saveBtn').on('click', function(){
-  var schedule = $(this).prev().val()
-  console.log(schedule)
-})
+  var schedule = $(this).prev().val();
+  console.log(schedule);
+});
