@@ -1,26 +1,29 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
-var saveBtnEl = document.querySelector('#fa-save');
-var hourContainerEl = document.querySelector('#hour-');
+var saveBtnEl = $('#fa-save');
+var textarea = $('#text-area')
+var hourContainerEl = $('#hour-');
 
 const currentDate = dayjs();
 const formattedDate = currentDate.format('YYYY-MM-DD');
 console.log(formattedDate);
-console.log
-$(function dataSubmit(event) {
+// console.log(dayjs());
+
+$(function schedulePlan(event) {
   event.preventDefault();
-var scheduleData = Input.value;
+
+// var scheduleData = Input.value;
+var schedule = document.getElementsByClassName('textarea').value;
+
 var scheduleData = localStorage.getItem('schedule');
-// parse the array
+
 var parsedSchedule = JSON.parse(schedule) || [];
 
 parsedSchedule.push(scheduleData);
-
-// serialize 
+ 
 var inputData = JSON.stringify(parsedSchedule);
 
-// store it
 localStorage.setItem('input', inputData);
 
 // if (event.target.matches('.hour-')) {
@@ -46,6 +49,6 @@ localStorage.setItem('input', inputData);
     // attribute of each time-block be used to do this?
     //
     // TODO: Add code to display the current date in the header of the page.
-// }
+updateHTML
   });
   
