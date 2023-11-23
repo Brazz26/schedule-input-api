@@ -2,7 +2,7 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 var saveBtnEl = $('#fa-save');
-var textarea = $('#text-area')
+var textAreaEL = $('#text-area')
 var hourContainerEl = $('#hour-');
 
 const currentDate = dayjs();
@@ -11,27 +11,23 @@ console.log(formattedDate);
 // console.log(dayjs());
 
 $(function schedulePlan(event) {
-  event.preventDefault();
 
-// var scheduleData = Input.value;
-var schedule = document.getElementsByClassName('textarea').value;
+  // var scheduleData = Input.value;
+  var schedule = document.getElementsByClassName('textarea').value;
+  var scheduleData = localStorage.getItem('schedule');
+  var parsedSchedule = JSON.parse(schedule) || [];
+  var inputData = JSON.stringify(parsedSchedule);
 
-var scheduleData = localStorage.getItem('schedule');
+  parsedSchedule.push(scheduleData);
 
-var parsedSchedule = JSON.parse(schedule) || [];
+  localStorage.setItem('input', inputData);
 
-parsedSchedule.push(scheduleData);
- 
-var inputData = JSON.stringify(parsedSchedule);
+  if (event.target.matches('.hour-')) {
+    console.log(event.target.dataset.text);
 
-localStorage.setItem('input', inputData);
 
-// if (event.target.matches('.hour-')) {
-//     console.log(event.target.dataset.text);
-     
-
-// console.log($(this).data('scheduleData'));
-// TODO: Add a listener for click events on the save button. This code should
+    console.log($(this).data('scheduleData'));
+    // TODO: Add a listener for click events on the save button. This code should
     // use the id in the containing time-block as a key to save the user input in
     // local storage. HINT: What does `this` reference in the click listener
     // function? How can DOM traversal be used to get the "hour-x" id of the
@@ -49,6 +45,25 @@ localStorage.setItem('input', inputData);
     // attribute of each time-block be used to do this?
     //
     // TODO: Add code to display the current date in the header of the page.
-updateHTML
-  });
-  
+    updateHTML
+  }
+});
+function timeblock() {
+  var currentHour = dayjs().hour();
+  console.log(currentHour);
+  for (i = 9; i < 18; i++) {
+    var hourContainerEl = $('#hour-' + i);
+    if (i > currentHour) {
+      hourContainerEl.addClass('future')
+    } else if (i < currentHour) {
+      hourContainerEl.addClass('past')
+    } else if (i === currentHour){
+      hourContainerEl.addClass('present')
+          }
+  }
+}
+timeblock()
+$('.saveBtn').on('click', function(){
+  var schedule = $(this).prev().val()
+  console.log(schedule)
+})
