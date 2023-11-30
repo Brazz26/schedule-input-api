@@ -1,8 +1,14 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
-var saveBtnEl = $('#fa-save');
-var textAreaEL = $('#text-area')
+var saveBtnEl = $('#save');
+var textAreaEL = $('#scheduleData');
+
+// var saveButton = document.getElementById("save-button"); 
+// saveButton.addEventListener("click", function() { 
+//   saveButton.textContent = "Saved"; 
+//   saveButton.classList.add("saved"); 
+// }); 
 
 var date = new Date();
 var dd = date.getDate();
@@ -12,17 +18,17 @@ var newDate = mm + '' + dd + '' + yyyy;
 var p = document.getElementById('currentDate');
 p.innerHTML = date;
 
-$(function schedulePlan(event) {
-
+$('#save').on('click', function()  {
+preventDefault
   // var scheduleData = Input.value;
-  var schedule = document.getElementsByClassName('input').value;
-  var scheduleData = localStorage.getItem('schedule');
+  var schedule = $('#scheduleData').text();
+  var scheduleData = localStorage.setItem('schedule', text);
   var parsedSchedule = JSON.parse(schedule) || [];
-  var inputData = JSON.stringify(parsedSchedule);
+  var text = JSON.stringify(parsedSchedule);
 
   parsedSchedule.push(scheduleData);
 
-  localStorage.setItem('input', inputData);
+  localStorage.getItem('schedule', text);
 
   if (event.target.matches(schedule)) {
     console.log('Saved');
