@@ -10,6 +10,7 @@ var textAreaEL = $('#scheduleData');
 //   saveButton.classList.add("saved"); 
 // }); 
 
+//gets current date and time of opening session
 var date = new Date();
 var dd = date.getDate();
 var mm = date.getMonth() + 1;
@@ -18,23 +19,26 @@ var newDate = mm + '' + dd + '' + yyyy;
 var p = document.getElementById('currentDate');
 p.innerHTML = date;
 
-$('#save').on('click', function()  {
-preventDefault
-  // var scheduleData = Input.value;
-  var schedule = $('#scheduleData').text();
-  var scheduleData = localStorage.setItem('schedule', text);
-  var parsedSchedule = JSON.parse(schedule) || [];
+$('#save').on('click', function dataSave(event)  {
+  event.preventDefault();
+  var scheduleData = $('#schedule');
+  var schedule = $('#scheduleData', text);
   var text = JSON.stringify(parsedSchedule);
+  var parsedSchedule = JSON.parse(schedule) || [];
+  
+  $('#save') = localStorage.getItem('schedule', schedule.textContent);
 
   parsedSchedule.push(scheduleData);
 
-  localStorage.getItem('schedule', text);
-
+  localStorage.setItem('schedule',schedule.textContent);
+console.log(schedule.textContent)
+  selected.push($(this).data('scheduleData'));
   if (event.target.matches(schedule)) {
     console.log('Saved');
+    // $.each(checkedEl, function () {
+      // selected.push($(this).val());
+    // });
 
-
-    console.log($(this).data('scheduleData'));
     // TODO: Add a listener for click events on the save button. This code should
     // use the id in the containing time-block as a key to save the user input in
     // local storage. HINT: What does `this` reference in the click listener
@@ -69,9 +73,11 @@ function timeblock() {
       hourContainerEl.addClass('present')
           }
   }
-}
+};
+
 timeblock()
 $('.saveBtn').on('click', function(){
   var schedule = $(this).prev().val();
   console.log(schedule);
 });
+
