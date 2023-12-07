@@ -19,6 +19,7 @@ var newDate = mm + '' + dd + '' + yyyy;
 var p = document.getElementById('currentDate');
 p.innerHTML = date;
 
+//click event for save button
 $('#save').on('click', function dataSave(event)  {
   event.preventDefault();
   var scheduleData = $('#schedule');
@@ -60,6 +61,7 @@ console.log(schedule.textContent)
     updateHTML
   }
 });
+// function to define timeblocks
 function timeblock() {
   var currentHour = dayjs().hour();
   console.log(currentHour);
@@ -75,6 +77,7 @@ function timeblock() {
   }
 };
 
+//function to change timeblocks based off past, future, and present
 timeblock()
 $('.saveBtn').on('click', function(){
   var schedule = $(this).prev().val();
