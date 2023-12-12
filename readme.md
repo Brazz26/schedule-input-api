@@ -1,8 +1,6 @@
-# <Your-Project-Title>
+# <Work-Day-Schedduler-API>
 
 ## Description
-
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
 
 - What was your motivation?As a USER I wanted to create a workflow schedule
 - Why did you build this project? (Note: the answer is not "Because it was a homework assignment.") This project was built to make life simpler for my current workflow daily activities.
@@ -18,3 +16,9 @@ Provide a short description explaining the what, why, and how of your project. U
 ![alt text](./assets/images/Work-Day-Scheduler) screenshot #2.png
 
 ![alt text](./assets/images/Work-Day-Scheduler) screenshot #3.png
+
+## Deployed Site
+https://brazz26.github.io/schedule-input-api/
+
+## Repository Clone
+https://github.com/Brazz26/schedule-input-api.git
